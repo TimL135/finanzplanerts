@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="onepage.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Finanzplaner</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="login.html">Log Out <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- navbar -->
+  <div class="container " id="maincontainer">
+    <!-- begrüßung -->
+    <h1>
+      <div id="begrußung" style="text-align: center;">
+      </div>
+      <br>
+    </h1>
+    <!-- begrüßung -->
+    <!-- pläne -->
+    <div id="divpläne" style="text-align: center;">
+      <h2>
+        Deine Pläne:
+      </h2>
+      <div id="pläneerstellen" style="text-align: center;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+          <div class="carousel-inner " id="planCarousel" style="background: #343a40;color: white;">
+            <div class="carousel-item active" id="carousel">
+              <div class="container" id="carouselItemFirst">
+                Du Hast noch keinen Plan
+                <br>
+                Drücke den Knopf um einen zu erstellen
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <button id=planHinzuFügenKnopf class="btn btn-dark pb-10 mt-4" data-toggle="modal" data-target="#planModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle"
+          viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        </svg>
+      </button>
+      <button id=planBearbeitenKnopf class="btn btn-dark pb-10 mt-4 d-none" data-toggle="modal"
+        data-target="#planEditModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-gear"
+          viewBox="0 0 16 16">
+          <path
+            d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+          <path
+            d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+        </svg>
+      </button>
+      <button class="btn btn-dark pb-10 mt-4 d-none" id="planLöschenKnopf" data-toggle="modal"
+        data-target="#planLöschenModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-trash"
+          viewBox="0 0 16 16">
+          <path
+            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+          <path fill-rule="evenodd"
+            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+        </svg>
+      </button>
+      <button class="btn btn-dark pb-10 mt-4" id="planHistoryKnopf" data-toggle="modal" data-target="#planHistoryModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-clock-history"
+          viewBox="0 0 16 16">
+          <path
+            d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
+          <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
+          <path
+            d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+        </svg>
+      </button>
+    </div>
+    <!-- pläne -->
+    <!-- einnahmen/ausgaben -->
+    <div class="mt-5">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr style="text-align: center;">
+            <th scope="col">Einnahmen</th>
+            <th scope="col">Ausgaben</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <table class="table" style="text-align: left;">
+                <tr>
+                  <th scope="col">Wo durch?</th>
+                  <th scope="col">Wie viel?</th>
+                  <th scope="col">Datum</th>
+                </tr>
+                <tr>
+                  <th>
+                    <ul id="einnahmeGrundListe">
+                    </ul>
+                  </th>
+                  <th>
+                    <ul id="einnahmeMengeListe">
+                    </ul>
+                  </th>
+                  <th>
+                    <ul id="einnahmeDatumListe">
+                    </ul>
+                  </th>
+                </tr>
+              </table>
+            </th>
+            <th>
+              <table class="table" style="text-align: left;">
+                <tr>
+                  <th scope="col">Wo für?</th>
+                  <th scope="col">Wie viel?</th>
+                  <th scope="col">Datum</th>
+                </tr>
+                <tr>
+                  <th style="text-align: left;">
+                    <ul id="ausgabeGrundListe">
+
+                    </ul>
+                  </th>
+                  <th style="text-align: left;">
+                    <ul id="ausgabeMengeListe">
+
+                    </ul>
+                  </th>
+                  <th style="text-align: left;">
+                    <ul id="ausgabeDatumListe">
+
+                    </ul>
+                  </th>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr style="text-align: center;">
+            <th>
+              <button class="btn btn-dark " data-toggle="modal" data-target="#einnahmeModal"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                  class="bi bi-plus-circle" viewBox="0 0 16 16" id="einnahmeHinzufügen">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg></button>
+            </th>
+            <th>
+              <button class="btn btn-dark" data-toggle="modal" data-target="#ausgabeModal"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                  class="bi bi-plus-circle" viewBox="0 0 16 16" id="ausgabeHinzufügen">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg></button>
+            </th>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <th style="text-align: right;">
+              Total:
+            </th>
+            <th style="text-align: left;" id="gesamt">
+              0€
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- einnahmen/ausgaben -->
+  <!-- modale -->
+  <!-- einnahme -->
+  <div class="modal fade" id="einnahmeModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Einnahme</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" id="einnahmeGrund" placeholder="wo durch?" required>
+          </div>
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" id="einnahmeMenge" placeholder="wie viel?"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            id="einnahmeBestätigung">Bestätigen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- einnahme -->
+  <!-- ausgabe -->
+  <div class="modal fade" id="ausgabeModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Ausgabe</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body ">
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" id="ausgabeGrund" placeholder="wo für?">
+          </div>
+          <div>
+            <ul id="ausgabePlan">
+            </ul>
+          </div>
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" id="ausgabeMenge" placeholder="wie viel?"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="ausgabeBestätigung">Bestätigen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ausgabe -->
+  <!-- pläne -->
+  <div class="modal fade" id="planModal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel3">Plan erstellen</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" placeholder="Für was möchtest du sparen?" id="planGrund">
+          </div>
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" placeholder="Wie viel möchtest du sparen?" id="planMenge"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+          </div>
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" placeholder="Wie lange möchtest du sparen?" id="planDauer"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="planBestätigung">Bestätigen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- pläne -->
+  <!-- pläneBearbeiten -->
+  <div class="modal fade" id="planEditModal" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel4">Plan bearbeiten</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="input-group input-group-lg">
+            <select class="custom-select" id="inputGroupSelect02">
+              <option value="0">Welchen Plan möchtest du überarbeiten?</option>
+            </select>
+          </div>
+
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" placeholder="Für was möchtest du sparen?" id="planEditGrund">
+          </div>
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" placeholder="Wie viel möchtest du sparen?" id="planEditMenge"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+          </div>
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" placeholder="Wie lange möchtest du sparen?" id="planEditDauer"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            id="planEditBestätigung">Bestätigen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- pläneBearbeiten -->
+  <div class="modal fade" id="planLöschenModal" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel5">Plan Löschen</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Pläne</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option value="0">Welcher Plan soll gelöscht werden?</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            id="planLöschenBestätigung">Löschen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="planHistoryModal" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel5">Plan History</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Planname</th>
+                <th scope="col">Spargrund</th>
+                <th scope="col">Sparziel</th>
+                <th scope="col">Spardauer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul id="PlanNameHistory"></ul>
+                </td>
+                <td>
+                  <ul id="SparGrundHistory"></ul>
+                </td>
+                <td>
+                  <ul id="SparMengeHistory"></ul>
+                </td>
+                <td>
+                  <ul id="SparDauerHistory"></ul>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modale -->
+  <script type="module" src="/src/main.ts"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+h1{
+  text-size-adjust: 1em;
+}
+
+button{
+  width: 160px;
+  height: 70px;   
+} 
+li{
+  list-style: none;   
+}
+ul{
+  padding-left: 0px;
+}
+.form-control{
+border-radius: .3rem !important; 
+} 
